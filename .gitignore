@@ -1,0 +1,24 @@
+# Ignore image files
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.ico
+*.svg
+*.tif
+*.tiff
+*.webp
+*.heif
+*.bat
+*.dylib
+# Ignore image directories
+images/
+img/
+photos/
+snooker/
+# Ignore virtual environments
+venv/
+env/
+myvenv/
+
