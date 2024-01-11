@@ -12,6 +12,7 @@
 *.heif
 *.bat
 *.dylib
+*.pb
 # Ignore image directories
 images/
 img/
