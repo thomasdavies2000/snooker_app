@@ -11,7 +11,7 @@ from model.object_detection.utils import label_map_util
 from model.object_detection.utils import visualization_utils as viz_utils
 from model.helpers.Positions import Positions, Ball
 import matplotlib
-matplotlib.use('TkAgg')
+# matplotlib.use('TkAgg')
 
 def load_image_into_numpy_array(path):
 

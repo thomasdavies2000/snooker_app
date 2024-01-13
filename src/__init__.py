@@ -18,7 +18,7 @@ class Ping(Resource):
         get_birdseye_view("model/images_to_detect/chin.jpg", "model/saved_model")
         return {
             'status': 'success',
-            'message': 'ponggg!'
+            'message': 'pongggo!'
         }
 
 
