@@ -65,6 +65,7 @@ def detection_coordinates(detections, image_np, category_index):
 
 
 def create_output_image(image_np, positions):
+      matplotlib.pyplot.switch_backend('Agg') # Do not show image in window
       IMAGE_SIZE = (12, 8)
       img = matplotlib.image.imread('model/table/table.jpg')
 
@@ -84,6 +85,7 @@ def create_output_image(image_np, positions):
       for ball in range(len(converted[0])):
             circ = Circle(converted[0][ball],15, color=colors[ball])
             ax.add_patch(circ)
+      
       matplotlib.pyplot.savefig("output_image.png", bbox_inches="tight", pad_inches=0)
 
       

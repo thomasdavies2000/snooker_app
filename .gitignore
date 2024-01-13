@@ -12,7 +12,8 @@
 *.heif
 *.bat
 *.dylib
-
+__pycache__/
+__pycache__
 # Ignore image directories
 images/
 img/
