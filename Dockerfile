@@ -1,5 +1,6 @@
 # pull official base image
-FROM --platform=linux/aarch64  python:3.10 
+# FROM --platform=linux/aarch64  python:3.10 
+FROM python:3.10 
 
 ARG TENSORFLOW_VERSION=v2.9.1
 # set working directory
