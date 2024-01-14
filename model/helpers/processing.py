@@ -11,6 +11,7 @@ from model.object_detection.utils import label_map_util
 from model.object_detection.utils import visualization_utils as viz_utils
 from model.helpers.Positions import Positions, Ball
 import matplotlib
+import os
 # matplotlib.use('TkAgg')
 
 def load_image_into_numpy_array(path):
@@ -86,21 +87,22 @@ def create_output_image(image_np, positions):
             circ = Circle(converted[0][ball],15, color=colors[ball])
             ax.add_patch(circ)
       
-      matplotlib.pyplot.savefig("output_image.png", bbox_inches="tight", pad_inches=0)
+      matplotlib.pyplot.savefig("src/output/output_image.png", bbox_inches="tight", pad_inches=0)
 
       
 
 def get_birdseye_view(image, model):
     
 
-    image_np, detections = process_image(image, model)
+      image_np, detections = process_image(image, model)
 
-    detections = process_detections(detections)
+      detections = process_detections(detections)
 
     
 
-    category_index=label_map_util.create_category_index_from_labelmap("model/labelmap/label_map.pbtxt",use_display_name=True)
+      category_index=label_map_util.create_category_index_from_labelmap("model/labelmap/label_map.pbtxt",use_display_name=True)
 
-    positions = detection_coordinates(detections, image_np, category_index)
-
-    create_output_image(image_np, positions)
+      positions = detection_coordinates(detections, image_np, category_index)
+      # delete all files found in "src/output/output_image.png"
+      
+      create_output_image(image_np, positions)
