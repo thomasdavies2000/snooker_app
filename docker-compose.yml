@@ -4,10 +4,10 @@ services:
 
   api:
     build:
-      context: .
+      context: ./services/backend
       dockerfile: Dockerfile
     volumes:
-      - .:/usr/src/app
+      - ./services/backend:/usr/src/app
     ports:
       - 5004:5000
     environment:
