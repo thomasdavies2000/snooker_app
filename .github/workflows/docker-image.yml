@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: ARM64
+    runs-on: linux
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
