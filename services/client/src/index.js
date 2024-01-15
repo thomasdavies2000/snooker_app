@@ -6,6 +6,9 @@ import axios from 'axios';  // new
 class App extends Component {
   constructor() {
     super();
+    
+  }
+  componentDidMount() {
     this.getOutPut();
   }
 
@@ -23,7 +26,7 @@ class App extends Component {
           <div className="columns">
             <div className="column is-one-third">
               <br/>
-              <h1 className="title is-1">Users</h1>
+              <h1 className="title is-1">Snooker Tool</h1>
               <hr/><br/>
             </div>
           </div>
