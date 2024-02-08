@@ -16,9 +16,16 @@ const AddImage = (props) => {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
+      })
+      .then((res) => {
+        console.log('meh');
+        let imageUrl = `${process.env.REACT_APP_API_SERVICE_URL}/image`
+        console.log(imageUrl);
+        
       });
       
-      console.log(response.data);
+      
+      
     } catch (error) {
       console.error(error);
     }
@@ -26,6 +33,10 @@ const AddImage = (props) => {
 
   return (
     <form onSubmit={handleFormSubmit}>
+      <div>
+      <h1>Image Component</h1>
+      <img src='http://localhost:5004/image' alt="Output Image" />
+    </div>
       <div className="field">
         <label
           className="label is-large"
@@ -46,6 +57,7 @@ const AddImage = (props) => {
         value="Apply Perspective Transform"
       />
     </form>
+    
   );
 };
 

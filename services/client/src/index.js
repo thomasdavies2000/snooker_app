@@ -1,7 +1,8 @@
 import { createRoot } from 'react-dom/client';
 import { Component } from 'react';
-import axios from 'axios';  // new
+
 import AddImage from './components/AddImage';
+import ShowImage from './components/ShowImage';
 
 class App extends Component {
   constructor() {
@@ -12,44 +13,22 @@ class App extends Component {
     };
   }
 
-  getOutPut() {
-    axios.get(`${process.env.REACT_APP_API_SERVICE_URL}/ping`)
-      .then((res) => {
-        this.setState({ image: res.data });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
 
   render() {
-    const { image } = this.state;
-
     return (
       <section className="section">
         <div className="container">
           <div className="columns">
-            <div className="column is-one-third">
-              <br />
-              <h1 className="title is-1">Snooker tool</h1>
-              <hr /><br />
-              
 
-              {/* Render the image message directly */}
-              <p className="box title is-4 image">{image.message}</p>
-              
-              {/* Button to trigger the getOutPut method */}
-              <button onClick={() => this.getOutPut()}>Convert image</button>
-            </div>
-            <div className="column is-half">  {/* new */}
+            <div className="column is-half"> 
             <br/>
             <h1 className="title is-1">Snooker Computer Vision Tool</h1>
             <hr/><br/>
-            <p>This is a little project I've </p>
+            <p>This is a project I've put together to showcase some of my skills and interests. </p>
           
 
-            <AddImage/>  {/* new */}
-            <br/><br/>  {/* new */}
+            <AddImage/>  
+            <br/><br/> 
             
           </div>
           </div>
