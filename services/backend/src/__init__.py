@@ -1,7 +1,7 @@
 # src/__init__.py
 
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_file
 from flask_restx import Resource, Api
 from flask_restful import reqparse
 from model.helpers.processing import get_birdseye_view
@@ -51,10 +51,23 @@ class Ping(Resource):
             name = request.form.get('name')
             test = request.form.get('test')
             
-            # Handle image processing or saving logic here
-            # save the image to the server
-            image.save(os.path.join(os.path.dirname(__file__), 'images', name))
 
+            # clear the output directory
+
+            output_directory = os.path.join(os.path.dirname(__file__), 'output')
+            if os.path.exists(output_directory) and os.path.isdir(output_directory):
+                files_in_output = os.listdir(output_directory)
+                for file_name in files_in_output:
+                    os.remove(os.path.join(output_directory, file_name))
+            
+
+            # save the image to the server
+            image.save(os.path.join(os.path.dirname(__file__), 'images', 'orginal.jpg'))
+            # delete the output image
+
+            
+            get_birdseye_view(os.path.join(os.path.dirname(__file__), 'images', 'orginal.jpg'), "model/saved_model")
+            
 
             response_object['status'] = 'success'
             response_object['message'] = 'Image uploaded successfully'
@@ -65,8 +78,24 @@ class Ping(Resource):
             response_object['message'] = str(e)
         return jsonify(response_object)
     
+class TransFormImage(Resource):
+    def get(self):
 
+        # image in ./output
+        image_path = os.path.join(os.path.dirname(__file__), 'output', 'output_image.png')
+
+        return send_file(image_path, mimetype='image/jpeg')
+    
+class OriginalImage(Resource):
+    def get(self):
+
+        # image in ./output
+        image_path = os.path.join(os.path.dirname(__file__), 'images', 'orginal.jpg')
+
+        return send_file(image_path, mimetype='image/jpeg')
 
 
 
 api.add_resource(Ping, '/ping')
+api.add_resource(TransFormImage, '/transform_image')
+api.add_resource(OriginalImage, '/original_image')
