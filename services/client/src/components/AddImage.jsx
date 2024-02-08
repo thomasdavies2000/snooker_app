@@ -18,12 +18,11 @@ const AddImage = (props) => {
         }
       })
       .then((res) => {
-        console.log('meh');
+        
         let imageUrl = `${process.env.REACT_APP_API_SERVICE_URL}/image`
-        console.log(imageUrl);
+        
         
       });
-      
       
       
     } catch (error) {
@@ -34,8 +33,8 @@ const AddImage = (props) => {
   return (
     <form onSubmit={handleFormSubmit}>
       <div>
-      <h1>Image Component</h1>
-      <img src='http://localhost:5004/image' alt="Output Image" />
+      
+      
     </div>
       <div className="field">
         <label

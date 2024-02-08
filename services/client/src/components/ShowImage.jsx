@@ -10,29 +10,29 @@ class ShowImage extends Component {
 
     };
   
-    
-    componentDidMount() {
-      this.getUsers();
-    };
-  
-    getUsers() {
-      return 'meh'
-      
-    }
-  
     render() {
       return (
         <section className="section">
           <div className="container">
             <div className="columns">
-              <div className="column is-one-third">
+              
                 <br/>
-                <h1 className="title is-1">Users</h1>
+                <div className='column is-half'>
+                    
+                    <img src="http://localhost:5004/original_image" alt="Output Image" />
+                </div>
+                
+                <div className='column is-half'>
+                    
+                    <img src="http://localhost:5004/transform_image" alt="Output Image" />
+                </div>
                 <hr/><br/>
-              </div>
+              
             </div>
           </div>
         </section>
       )
     }
   };
+
+export default ShowImage;   

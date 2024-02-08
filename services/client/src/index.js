@@ -22,12 +22,13 @@ class App extends Component {
 
             <div className="column is-half"> 
             <br/>
-            <h1 className="title is-1">Snooker Computer Vision Tool</h1>
+            <h1 className="title is-1">Computer Vision Snooker Tool</h1>
             <hr/><br/>
             <p>This is a project I've put together to showcase some of my skills and interests. </p>
-          
+            <hr></hr>
 
             <AddImage/>  
+            <ShowImage/>
             <br/><br/> 
             
           </div>
