@@ -1,40 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';  // new
 const AddImage = (props) => {
-
-  const [message, setMessage] = useState('');
-  
   const handleFormSubmit = async (event) => {
     event.preventDefault(); // Prevent the default form submission behavior
     const inputFile = document.getElementById('input-image');
     const uploadedFile = inputFile.files[0];
     
-    if (uploadedFile) {
-      const formData = new FormData();
-      formData.append('image', uploadedFile);
-
-      try {
-        const response = await axios.post(`${process.env.REACT_APP_API_SERVICE_URL}/ping`, formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
-        });
-
-        setMessage(response.data.message);
-      } catch (error) {
-        console.error('Error uploading image:', error);
-      }
-    } else {
-      setMessage('No image selected.');
+    const formData = new FormData();
+    formData.append('image', uploadedFile);
+    formData.append('name', uploadedFile.name);
+    formData.append('test', 'hello');
+    
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_API_SERVICE_URL}/ping`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
     }
-    // send 'hello' to the server
-    // axios.post(`${process.env.REACT_APP_API_SERVICE_URL}/ping`, { image: uploadedFile })
-    //   .then((res) => {
-    //     console.log(res.data);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
   };
 
   return (

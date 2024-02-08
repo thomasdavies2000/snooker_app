@@ -45,13 +45,25 @@ class Ping(Resource):
 
         }
     def post(self):
-        
-        post_data = request.get_json()
-        
-        # save the image
-        image = post_data['image']
-        image.save("src/output/test.jpg")
-        return jsonify("hello world")
+        response_object = {}
+        try:
+            image = request.files['image']
+            name = request.form.get('name')
+            test = request.form.get('test')
+            
+            # Handle image processing or saving logic here
+            # save the image to the server
+            image.save(os.path.join(os.path.dirname(__file__), 'images', name))
+
+
+            response_object['status'] = 'success'
+            response_object['message'] = 'Image uploaded successfully'
+            response_object['name'] = name
+            response_object['test'] = test
+        except Exception as e:
+            response_object['status'] = 'error'
+            response_object['message'] = str(e)
+        return jsonify(response_object)
     
 
 
