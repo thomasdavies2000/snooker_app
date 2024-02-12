@@ -1,16 +1,25 @@
 import { createRoot } from 'react-dom/client';
-import { Component } from 'react';
+import { Component, useState } from 'react';
 
 import AddImage from './components/AddImage';
 import ShowImage from './components/ShowImage';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
     
+    super(props);
     this.state = {
-      image: {}
+      imageUploaded: false
     };
+    this.handleImageUploadComplete = this.handleImageUploadComplete.bind(this);
+    
+  }
+
+  handleImageUploadComplete() {
+    console.log("hellooooo")
+    this.setState({ imageUploaded: true }, () => {
+      console.log(this.state.imageUploaded);
+    });
   }
 
 
@@ -27,8 +36,8 @@ class App extends Component {
             <p>This is a project I've put together to showcase some of my skills and interests. </p>
             <hr></hr>
 
-            <AddImage/>  
-            <ShowImage/>
+            <AddImage onUploadComplete={this.handleImageUploadComplete} /> 
+            {<ShowImage />}
             <br/><br/> 
             
           </div>

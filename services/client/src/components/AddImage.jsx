@@ -1,6 +1,8 @@
 import React from 'react';
-import axios from 'axios';  // new
-const AddImage = (props) => {
+import axios from 'axios'; 
+
+
+const AddImage = ({ onUploadComplete }) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault(); // Prevent the default form submission behavior
     const inputFile = document.getElementById('input-image');
@@ -9,7 +11,7 @@ const AddImage = (props) => {
     const formData = new FormData();
     formData.append('image', uploadedFile);
     formData.append('name', uploadedFile.name);
-    formData.append('test', 'hello');
+    
     
     try {
       const response = await axios.post(`${process.env.REACT_APP_API_SERVICE_URL}/ping`, formData, {
@@ -18,7 +20,7 @@ const AddImage = (props) => {
         }
       })
       .then((res) => {
-        
+        onUploadComplete();
         let imageUrl = `${process.env.REACT_APP_API_SERVICE_URL}/image`
         
         
