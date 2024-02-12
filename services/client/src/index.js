@@ -37,7 +37,7 @@ class App extends Component {
             <hr></hr>
 
             <AddImage onUploadComplete={this.handleImageUploadComplete} /> 
-            {<ShowImage />}
+            {this.state.imageUploaded && <ShowImage />}
             <br/><br/> 
             
           </div>
