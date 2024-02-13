@@ -1,9 +1,10 @@
 import { createRoot } from 'react-dom/client';
 import { useState } from 'react';
+import { Link, BrowserRouter } from "react-router-dom";
 import AddImage from './components/AddImage';
 import ShowImage from './components/ShowImage';
-import Spinner from './components/Spinner';
-import './styles.css'; // Import your CSS file for additional styling
+
+import './styles.css'; // Import CSS file
 
 const App = () => {
   const [uploaded, setIsUploaded] = useState(false);
@@ -20,7 +21,8 @@ const App = () => {
   };
 
   return (
-    <div className="app-container"> {/* Apply centering styles to the container */}
+    <BrowserRouter>
+    <div className="app-container"> 
       <section className="section">
         <div className="container">
           <div className="columns">
@@ -33,13 +35,18 @@ const App = () => {
               <hr />
               <AddImage onUploadComplete={handleImageUploadComplete} onLoading={imageIsLoading} />
               <ShowImage isUploaded={uploaded} isLoading={loading} />
+              <Link to="24.jpg" target="_blank" download>Download</Link>
+              
               <br />
               <br />
+              
+
             </div>
           </div>
         </div>
       </section>
     </div>
+    </BrowserRouter>
   );
 };
 

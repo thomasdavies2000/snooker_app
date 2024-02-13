@@ -10,7 +10,7 @@ function ShowImage({ isUploaded, isLoading }) {
 
   return (
     <section className="section">
-      {isLoading && <h1>Loading...</h1>}
+      {isLoading && <h1>Analysing image...</h1>}
       {isUploaded && (
         <div className="container">
           <div className="columns">
