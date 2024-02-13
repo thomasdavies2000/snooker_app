@@ -1,0 +1,17 @@
+/* styles.css */
+body, html {
+    
+    margin: 0;
+  }
+  
+  .app-container {
+    /* centre container */
+    
+    
+    
+    height: 100%;
+    width: 60%;
+    margin: 0 auto;
+
+  }
+  

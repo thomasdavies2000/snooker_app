@@ -1,11 +1,13 @@
-import React from 'react';
+import { React, useState } from 'react';
 import axios from 'axios'; 
 
 
-const AddImage = ({ onUploadComplete }) => {
+const AddImage = ({ onUploadComplete, onLoading }) => {
+
+  
   const handleFormSubmit = async (event) => {
     event.preventDefault(); 
-    
+    onLoading();
 
     const inputFile = document.getElementById('input-image');
     const uploadedFile = inputFile.files[0];
@@ -16,17 +18,17 @@ const AddImage = ({ onUploadComplete }) => {
     
     
     try {
+      
       const response = await axios.post(`${process.env.REACT_APP_API_SERVICE_URL}/ping`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       })
-      .then((res) => {
+      .then((response) => {
+        console.log("done")
         onUploadComplete();
-        let imageUrl = `${process.env.REACT_APP_API_SERVICE_URL}/image`
-        
-        
-      });
+      })
+      
       
       
     } catch (error) {
