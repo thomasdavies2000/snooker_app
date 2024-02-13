@@ -3,15 +3,9 @@ import { createRoot } from 'react-dom/client';
 import { Component } from 'react';
 import axios from 'axios'; 
 
-class ShowImage extends Component {
-    
-    constructor() {
-      super();
 
-    };
-  
-    render() {
-      return (
+const ShowImage = () => {
+          return (
         <section className="section">
           <div className="container">
             <div className="columns">
@@ -21,7 +15,7 @@ class ShowImage extends Component {
                     
                     <img src="http://localhost:5004/original_image" alt="Output Image" />
                 </div>
-                
+
                 <div className='column is-half'>
                     
                     <img src="http://localhost:5004/transform_image" alt="Output Image" />
@@ -32,7 +26,6 @@ class ShowImage extends Component {
           </div>
         </section>
       )
-    }
-  };
+}
 
 export default ShowImage;   

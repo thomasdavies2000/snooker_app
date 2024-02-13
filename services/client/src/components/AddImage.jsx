@@ -4,10 +4,12 @@ import axios from 'axios';
 
 const AddImage = ({ onUploadComplete }) => {
   const handleFormSubmit = async (event) => {
-    event.preventDefault(); // Prevent the default form submission behavior
+    event.preventDefault(); 
+    
+
     const inputFile = document.getElementById('input-image');
     const uploadedFile = inputFile.files[0];
-    
+    console.log('added')
     const formData = new FormData();
     formData.append('image', uploadedFile);
     formData.append('name', uploadedFile.name);
