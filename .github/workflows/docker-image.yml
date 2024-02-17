@@ -11,6 +11,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      REACT_APP_API_URL: http://localhost:5004   
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -27,4 +29,5 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Docker compose push
+
         run: docker-compose push
