@@ -23,4 +23,5 @@ snooker/
 venv/
 env/
 myvenv/
+secrets.yml
 

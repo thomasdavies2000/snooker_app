@@ -32,10 +32,11 @@ const App = () => {
               <hr />
               <br />
               <p>I've put this project together to showcase some of my skills and interests. </p>
+              <Link to="24.jpg" target="_blank" download>Download</Link>
               <hr />
               <AddImage onUploadComplete={handleImageUploadComplete} onLoading={imageIsLoading} />
               <ShowImage isUploaded={uploaded} isLoading={loading} />
-              <Link to="24.jpg" target="_blank" download>Download</Link>
+              
               
               <br />
               <br />
